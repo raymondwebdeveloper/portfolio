@@ -1,0 +1,408 @@
+@font-face {
+    font-family: Sansation;
+    src: url("../font/Sansation Regular V2.woff");
+}
+
+* {
+    color: #282828;
+    font-family: "Sansation";
+    font-style: normal;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #d2cabb;
+    overflow-x: hidden;
+}
+
+#bg {
+    background: url("../img/bg/bg.jpg") no-repeat center center fixed;  
+    height: 650px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#bg2 {
+    background: url("../img/bg/bg_2.jpg") no-repeat fixed;
+    height: 550px;
+    width: 100%;
+    background-position: 0px 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.parallax-window {
+    min-height: 500px;
+    background: transparent;
+}
+
+.text-style {
+    position: relative !important;
+    top: 200px !important;
+    left: 0px;
+    height: 100%;
+    position: relative;
+    top: 45%;
+}
+
+.text-style h1 {
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 65px;
+    text-shadow: 3px 4px 5px #000;
+}
+a.text-orange{
+    color: #e5580c;
+    text-decoration: underline;
+}
+
+#bg3 {
+    background: url("../img/bg/bg_3.jpg") no-repeat fixed;
+    height: 550px;
+    width: 100%;
+    background-position: 0px 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.position {
+    position: relative;
+    top: 35%;
+}
+
+.position h1 {
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 65px;
+    text-shadow: 3px 4px 5px #000;
+}
+
+.position p {
+    color: #fff;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 25px;
+    text-shadow: 3px 4px 5px #000;
+    margin: 0px;
+}
+
+#about-section1 {
+    position: relative;
+    top: 50%;
+}
+
+#bg-shade1 {
+    background-image: url("../img/bg/bg_shade.svg");
+    background-repeat: no-repeat;
+    background-position: 0 -150px;
+    background-size: 100%;
+}
+
+#black-shade {
+    background: rgba(40, 40, 40, 0.53);
+   
+}
+
+.bg-E5580C {
+    background-color: #e5580c;
+}
+
+.bg-D2CABB {
+    background-color: #d2cabb;
+}
+
+.bg-282828 {
+    background-color: #282828;
+}
+
+.bg-A7A195 {
+    background-color: #a7a195;
+}
+
+.nav-item {
+    border-right: 1px solid #fff;
+    padding: 0px 25px;
+}
+
+.nav-link {
+    display: block;
+    padding: 0px !important;
+}
+
+.fs-72 {
+    font-size: 72px;
+}
+
+.fs-64 {
+    font-size: 64px;
+}
+
+.fs-36 {
+    font-size: 36px;
+}
+
+.fs-37 {
+    font-size: 37px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+i.logo-html,
+i.logo-css,
+i.logo-java,
+i.logo-b4,
+i.logo-figma,
+i.logo-vega {
+    background: url("../img/logo/sprite_logo1.svg");
+    background-repeat: no-repeat;
+}
+
+i.logo-html {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: 0px 0px;
+}
+
+i.logo-css {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -95px 0px;
+}
+
+i.logo-java {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -188px 0px;
+}
+
+i.logo-b4 {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -285px 0px;
+}
+
+i.logo-figma {
+    width: 93px;
+    height: 95px;
+    display: inline-block;
+    background-position: -379px 0px;
+}
+
+i.logo-vega {
+    width: 88px;
+    height: 95px;
+    display: inline-block;
+    background-position: -475px 0px;
+}
+
+/* zoom */
+img.fx {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+img.fx:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+/* Gray Scale */
+i.logo {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+i.logo:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+/* flash */
+.flash:hover {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+.radius-25 {
+    border-radius: 25px;
+}
+
+.shadow-style {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* responsive */
+@media (min-width: 320px) {
+    h1.fs-64 {
+        font-size: 36px;
+    }
+
+    p.fs-36 {
+        font-size: 24px;
+    }
+
+    .profile-img {
+        width: 200px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 32px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 16px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 0px solid #fff;
+        padding: 10px 25px;
+    }
+}
+
+@media (min-width: 480px) {
+    .profile-img {
+        width: 346px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 36px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 20px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 0px solid #fff;
+        padding: 10px 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-img {
+        width: 446px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 72px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 37px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 1px solid #fff;
+        padding: 0px 25px;
+    }
+}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
+
+/* animatetion */
+#black-shade {
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+
+.profile-img {
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+
+@keyframes fadein {
+    0% {
+        transform: translateX(120px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #D2CABB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.preload-finish {
+    opacity: 0;
+    pointer-events: none;
+}
