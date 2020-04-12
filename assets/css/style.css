@@ -69,6 +69,10 @@ body {
     font-family: serif !important;
 }
 
+.text-orange {
+    color: #e5580c !important;
+}
+
 h4.text-orange {
     color: #e5580c !important;
 }
@@ -117,21 +121,33 @@ a.text-orange {
     margin: 0px;
 }
 
+.rotate {
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+.hline {
+    display: inline-block;
+    height: 1px;
+    width: 30px;
+    background-color: #fff;
+    position: relative;
+    bottom: 5px;
+}
+
+.inner {
+    position: relative;
+    top: -20px;
+    left: 20%;
+    width: 150px;
+}
+
 #destination1 {
     position: relative;
     top: 50%;
 }
 
-#bg-shade1 {
-    background-image: url("../img/bg/bg_shade.svg");
-    background-repeat: no-repeat;
-    background-position: 0 -150px;
-    background-size: 100%;
-}
-
 #black-shade {
-    background: rgba(40, 40, 40, 0.53);
-
+    background: rgba(40, 40, 40, 0.7);
 }
 
 .bg-E5580C {
@@ -165,14 +181,31 @@ nav.navbar {
     border-right: 1px solid #fff;
     padding: 0px 25px;
 }
+.navbar-dark .navbar-nav .nav-link{
+   color: #fff!important;
+}
 
+a.nav-link::after {
+    content: "";
+    display: flex;
+    width: 0;
+    height: 2px;
+    background: #E5580C;
+    transition: width .3s;   
+}
+
+a.nav-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+     padding: 0px;
+}
 .nav-link {
     display: block;
     padding: 0px !important;
 }
 
-.fs-72 {
-    font-size: 72px;
+.fs-52 {
+    font-size: 52px;
 }
 
 .fs-64 {
@@ -316,9 +349,10 @@ html {
 /* responsive */
 @media (min-width: 320px) {
     .navbar {
-      top: 0px;
-      right: 0px;
+        top: 0px;
+        right: 0px;
     }
+
     h1.fs-64 {
         font-size: 36px;
     }
@@ -350,9 +384,10 @@ html {
 
 @media (min-width: 480px) {
     .navbar {
-      top: 0px;
-      right: 0px;
+        top: 0px;
+        right: 0px;
     }
+
     .profile-img {
         width: 346px;
         transition: 0.5s;
@@ -376,9 +411,10 @@ html {
 
 @media (min-width: 768px) {
     .navbar {
-      top: auto;
-      right: auto;
+        top: auto;
+        right: auto;
     }
+
     .profile-img {
         width: 446px;
         transition: 0.5s;
