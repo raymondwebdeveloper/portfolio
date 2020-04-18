@@ -1,0 +1,93 @@
+/* responsive */
+@media (min-width: 320px) {
+    .navbar {
+        top: 0px;
+        right: 0px;
+    }
+
+    h1.fs-64 {
+        font-size: 36px;
+    }
+
+    p.fs-36 {
+        font-size: 24px;
+    }
+
+    .profile-img {
+        width: 200px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 32px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 16px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 0px solid #fff;
+        padding: 10px 25px;
+    }
+}
+
+@media (min-width: 480px) {
+    .navbar {
+        top: 0px;
+        right: 0px;
+    }
+
+    .profile-img {
+        width: 346px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 36px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 20px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 0px solid #fff;
+        padding: 10px 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        top: auto;
+        right: auto;
+    }
+
+    .profile-img {
+        width: 446px;
+        transition: 0.5s;
+    }
+
+    h1.fs-72 {
+        font-size: 72px;
+        transition: 0.5s;
+    }
+
+    h4.fs-37 {
+        font-size: 37px;
+        transition: 0.5s;
+    }
+
+    .nav-item {
+        border-right: 1px solid #fff;
+        padding: 0px 25px;
+    }
+}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}

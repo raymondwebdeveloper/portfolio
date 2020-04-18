@@ -1,0 +1,51 @@
+i.logo-html,
+i.logo-css,
+i.logo-java,
+i.logo-b4,
+i.logo-figma,
+i.logo-vega {
+    background: url("../img/logo/sprite_logo1.svg");
+    background-repeat: no-repeat;
+}
+
+i.logo-html {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: 0px 0px;
+}
+
+i.logo-css {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -95px 0px;
+}
+
+i.logo-java {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -188px 0px;
+}
+
+i.logo-b4 {
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    background-position: -285px 0px;
+}
+
+i.logo-figma {
+    width: 93px;
+    height: 95px;
+    display: inline-block;
+    background-position: -379px 0px;
+}
+
+i.logo-vega {
+    width: 88px;
+    height: 95px;
+    display: inline-block;
+    background-position: -475px 0px;
+}

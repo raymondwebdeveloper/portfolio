@@ -1,0 +1,64 @@
+.text-style {
+    position: relative !important;
+    top: 200px !important;
+    left: 0px;
+    height: 100%;
+    position: relative;
+    top: 45%;
+
+    h1 {
+        color: #fff;
+        font-weight: 900;
+        text-align: center;
+        opacity: 0.5;
+        font-size: 65px;
+        text-shadow: 3px 4px 5px #000;
+    }
+}
+.underline {
+    text-decoration: underline;
+}
+
+.text {
+    font-family: serif !important;
+}
+
+.text-orange {
+    color: #e5580c !important;
+}
+
+h4.text-orange {
+    color: #e5580c !important;
+}
+
+a.text-orange {
+    color: #e5580c;
+    text-decoration: underline;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+.fs-52 {
+    font-size: 52px;
+}
+
+.fs-64 {
+    font-size: 64px;
+}
+
+.fs-36 {
+    font-size: 36px;
+}
+
+.fs-37 {
+    font-size: 37px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.bold {
+    font-weight: 800;
+}
