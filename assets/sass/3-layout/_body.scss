@@ -38,11 +38,6 @@ body {
     background: transparent;
 }
 
-
-
-
-
-
 #bg3 {
     background: url("../img/bg/bg_3.jpg") no-repeat fixed;
     min-height: 750px;
@@ -426,3 +421,18 @@ i.fa {
 #media-btn a {
     text-decoration: none;
 }
+
+.theme-btn{
+    position: fixed; 
+    right: -150px; 
+    bottom: 65px;
+    transition: all 0.4s;
+}
+.theme-btn.active{
+    position: fixed; 
+    right: -38px;
+    bottom: 65px;
+    transition: all 0.4s;
+}
+
+

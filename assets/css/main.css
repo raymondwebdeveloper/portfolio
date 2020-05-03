@@ -448,6 +448,18 @@ i.fa {
 #media-btn a {
   text-decoration: none; }
 
+.theme-btn {
+  position: fixed;
+  right: -150px;
+  bottom: 65px;
+  transition: all 0.4s; }
+
+.theme-btn.active {
+  position: fixed;
+  right: -38px;
+  bottom: 65px;
+  transition: all 0.4s; }
+
 /* responsive */
 @media (min-width: 320px) {
   .navbar {
