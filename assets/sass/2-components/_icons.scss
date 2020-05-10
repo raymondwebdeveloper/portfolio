@@ -49,3 +49,14 @@ i.logo-vega {
     display: inline-block;
     background-position: -475px 0px;
 }
+
+.icon-rotate{
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: .5s;
+}
+.icon-rotate:hover{
+    transform: rotate(80deg);
+    transform-origin: center center;
+    transition: .5s;
+}

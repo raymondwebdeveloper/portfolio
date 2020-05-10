@@ -1,0 +1,9 @@
+.bg-orange{
+    background-color: $orange;
+}
+.btn-orange{
+    background-color: $orange;
+    &:hover{
+        background-color: lighten($orange, 8);
+    }
+}

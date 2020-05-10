@@ -1,5 +1,5 @@
 $(function () {
-    $(".theme-btn").mouseenter(function () {
+    $(".theme-btn").click(function () {
         console.log("hovered in");
         $(this).addClass('active');
     });

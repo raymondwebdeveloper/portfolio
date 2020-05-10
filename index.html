@@ -378,8 +378,23 @@
         </div>
     </footer>
 
+    <!-- theme button selector -->
     <div class="theme-btn">
-        <img src="./assets/img/theme/selection.svg" alt="">
+        <div class="d-flex align-items-center">
+            <div class="bg-orange p-2"
+                style=" border: 3px solid #fff; border-radius: 7px 0px 0px 7px; border-right:none; position: relative; right: -3px;">
+                <img src="./assets/img/icon/icon_gear.svg" alt="" class="icon-rotate">
+            </div>
+            <div class="bg-orange py-3" style="border: 3px solid #fff; border-radius: 7px;">
+                <button class="btn btn-orange text-white text-center btn-block mx-3">
+                    Default
+                    <br>
+                    Theme
+                </button>
+
+                <button class="btn btn-orange text-white btn-block mx-3">Illustration <br> Theme</button>
+            </div>
+        </div>
     </div>
 
     <!-- .js libs | jQuery | java script-->
@@ -387,6 +402,7 @@
     <script src="assets/js/app.js"></script>
 
     <script>
+        // scroll effect
         $('.navbar a').on('click', function (e) {
             console.log(this.hash);
             if (this.hash !== '') {
@@ -401,15 +417,16 @@
                 );
             }
         });
-
     </script>
 
     <script>
+        // loading page
         window.addEventListener("load", () => {
             const preload = document.querySelector(".preload");
             preload.classList.add("preload-finish");
         });
 
+        // type effect    
         var typed = new Typed('.type', {
             strings: [
                 "a Front End Developer . . .",

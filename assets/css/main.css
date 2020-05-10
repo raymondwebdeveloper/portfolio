@@ -1,6 +1,14 @@
 @font-face {
   font-family: Sansation;
   src: url("../font/Sansation Regular V2.woff"); }
+.bg-orange {
+  background-color: #e5580c; }
+
+.btn-orange {
+  background-color: #e5580c; }
+  .btn-orange:hover {
+    background-color: #f46e26; }
+
 .text-style {
   position: relative !important;
   top: 200px !important;
@@ -97,6 +105,16 @@ i.logo-vega {
   height: 95px;
   display: inline-block;
   background-position: -475px 0px; }
+
+.icon-rotate {
+  transform: rotate(0deg);
+  transform-origin: center center;
+  transition: .5s; }
+
+.icon-rotate:hover {
+  transform: rotate(80deg);
+  transform-origin: center center;
+  transition: .5s; }
 
 * {
   color: #282828;
@@ -450,14 +468,14 @@ i.fa {
 
 .theme-btn {
   position: fixed;
-  right: -150px;
-  bottom: 65px;
+  right: -147px;
+  bottom: 75px;
   transition: all 0.4s; }
 
 .theme-btn.active {
   position: fixed;
-  right: -38px;
-  bottom: 65px;
+  right: -9px;
+  bottom: 75px;
   transition: all 0.4s; }
 
 /* responsive */
