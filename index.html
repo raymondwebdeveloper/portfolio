@@ -1,459 +1,822 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raymond dela Paz | Front-End Developer & Web Designer</title>
+    <meta
+      name="description"
+      content="Portfolio of Raymond dela Paz, Front-End Developer and Web Designer."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Poppins", "Inter", "sans-serif"],
+            },
+            colors: {
+              dark: "#050814",
+              ink: "#020617",
+              slateText: "#cbd5e1",
+              muted: "#94a3b8",
+              aqua: "#00e5ff",
+              mint: "#37ff8b",
+              lime: "#ceff00",
+            },
+            boxShadow: {
+              glow: "0 0 45px rgba(55,255,139,.22)",
+              glass: "0 24px 80px rgba(0,0,0,.35)",
+              cyan: "0 0 40px rgba(0,229,255,.22)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --hero-bg: url("https://www.figma.com/api/mcp/asset/1fd5d17f-2788-480c-beaa-d4cd52b5357b");
+        --script-name: url("https://www.figma.com/api/mcp/asset/42953786-d3db-48d2-beba-601b094edab8");
+        --hero-visual: url("https://www.figma.com/api/mcp/asset/24ff146f-0746-4e69-bf12-1865066cef62");
+      }
+      html,
+      body {
+        background: #050814;
+        color: #f1f5f9;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(
+            circle at 78% 10%,
+            rgba(55, 255, 139, 0.16) 0,
+            transparent 24rem
+          ),
+          radial-gradient(
+            circle at 18% 8%,
+            rgba(0, 229, 255, 0.12) 0,
+            transparent 26rem
+          ),
+          radial-gradient(
+            circle at 50% 100%,
+            rgba(29, 78, 216, 0.14) 0,
+            transparent 28rem
+          ),
+          #050814;
+      }
+      .site-shell {
+        max-width: 1440px;
+        margin-inline: auto;
+      }
+      .glass {
+        position: relative;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        background: linear-gradient(
+          180deg,
+          rgba(15, 23, 42, 0.78),
+          rgba(2, 6, 23, 0.72)
+        );
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+      }
+      .glass::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #00e5ff, #37ff8b);
+        color: #020617;
+        box-shadow: 0 0 45px rgba(55, 255, 139, 0.22);
+      }
+      .outline-btn {
+        background: rgba(55, 255, 139, 0.05);
+        border: 1px solid rgba(55, 255, 139, 0.5);
+        color: white;
+      }
+      .pill {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.48rem 0.85rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #e2e8f0;
+        white-space: nowrap;
+      }
+      .hero-bg {
+        background-image:
+          var(--hero-bg),
+          linear-gradient(90deg, rgb(0 0 0 / 96%), rgba(5, 8, 20, 0.8));
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: 220% center;
+      }
+      .hero-visual {
+        background-image: var(--hero-visual);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      .script-name {
+        background-image: var(--script-name);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      .project-card {
+        min-height: 403px;
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 229, 255, 0.45);
+        box-shadow: 0 24px 90px rgba(0, 229, 255, 0.13);
+      }
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .project-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1));
+      }
+      .skill-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 17px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        min-width: 84px;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-link.active,
+      .nav-link:hover {
+        color: #37ff8b;
+      }
+      @media (max-width: 1200px) {
+        .site-shell {
+          max-width: 100%;
+        }
+        .hero-bg {
+          background-size: 70% auto;
+          background-position: right top;
+        }
+        .project-card {
+          min-height: auto;
+        }
+      }
+      @media (max-width: 1023px) {
+        .hero-bg {
+          background-image:
+            linear-gradient(90deg, rgba(5, 8, 20, 0.96), rgba(5, 8, 20, 0.8)),
+            var(--hero-bg);
+          background-size: cover;
+          background-position: center top;
+        }
+        .floating-panel {
+          display: none !important;
+        }
+      }
+      @media (max-width: 767px) {
+        .script-name {
+          width: 145px !important;
+          height: 52px !important;
+        }
+        .stat-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          padding-top: 1rem;
+        }
+        .stat-item {
+          border-right: 0 !important;
+          align-items: center !important;
+          text-align: center;
+          padding: 0.6rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      id="top"
+      class="sticky top-0 z-50 border-b border-white/10 bg-dark/70 backdrop-blur-xl"
+    >
+      <div
+        class="site-shell h-20 px-6 lg:px-0 flex items-center justify-between"
+      >
+        <a href="#home" class="flex items-center gap-3 group">
+          <span
+            class="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-aqua to-mint p-px shadow-cyan"
+          >
+            <span
+              class="grid h-full w-full place-items-center rounded-2xl bg-dark font-black tracking-[-1.2px]"
+              >R</span
+            >
+          </span>
+          <span
+            class="leading-none font-display font-black text-[14px] tracking-[3px]"
+          >
+            <span class="block text-slate-100">RAYMOND</span>
+            <span class="block mt-1 text-mint tracking-[3.9px]">DELA PAZ</span>
+          </span>
+        </a>
 
-    <!-- meta og and twitter tags -->
-    <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Online Portfolio | Raymond dela Paz">
-    <meta property="og:description"
-        content="I found a passion for technology at a young age. Many years later I am now a Lead Front-End Developer.">
-    <meta property="og:url" content="https://raymondwebdeveloper.github.io/portfolio/">
-    <meta property="og:site_name" content="Online Portfolio Raymond dela Paz">
-    <meta property="og:image" content="assets/img/figma.png">
-    <meta property="og:image:secure_url" content="assets/img/figma.png">
+        <nav
+          class="hidden md:flex items-center gap-8 text-[14px] font-semibold text-slateText"
+        >
+          <a href="#home" class="nav-link transition">Home</a>
+          <a href="#about" class="nav-link transition">About</a>
+          <a href="#projects" class="nav-link transition">Projects</a>
+          <a href="#skills" class="nav-link transition">Services</a>
+          <a href="#skills" class="nav-link transition">Skills</a>
+          <a href="#contact" class="nav-link transition">Contact</a>
+        </nav>
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description"
-        content="I found a passion for technology at a young age. Many years later I am now a Lead Front-End Developer.">
-    <meta name="twitter:title" content="Online Portfolio | Raymond dela Paz">
-    <meta name="twitter:image" content="">
+        <a
+          href="mailto:raymond.delapaz@email.com"
+          class="hidden sm:inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold gradient-btn"
+        >
+          Hire Me
+          <span
+            ><img src="assets/icon/paper-plane-svgrepo-com.svg" alt=""
+          /></span>
+        </a>
 
-    <!--  title page & css & icon & fonts -->
-    <title>Online Profile | Raymond Web</title>
-    <link rel="icon" href="assets/img/icon/favicon.svg" type="image/gif" sizes="16x16" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-    <!-- js libraries | bootstrap 4 | framework -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="assets/js/typed.js"></script>
-</head>
-
-<body>
-    <!-- loader -->
-    <div class="preload">
-        <div class="mb-3"><img src="assets/img/preload/loading.gif" alt=""></div>
-        <h4>LoADING...</h4>
-    </div>
-
-    <!-- header -->
-    <header id="home-bg" class="" style="min-height: 450px!important;">
-        <div class="row m-0" style="height: 100%">
-            <section class="col-4 px-0 d-lg-block d-none" id="about">
-                <div class="bg-E5580C text-white p-5 d-lg-block d-none mb-5" id="destination1" data-aos="fade-right"
-                    data-aos-offset="200">
-                    <h1 class="text-white">Testimonial &mdash;</h1>
-                    I found a passion for technology at a young age. Many years later, I
-                    am now a <br class="d-lg-block d-none"> Lead Front-End Developer.
-                </div>
-            </section>
-            <section class="col pl-0" id="black-shade" data-aos="fade-left">
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar"
-                        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse text-center" id="navbar">
-                        <a class="navbar-brand" href="#"><img src="assets/img/logo/logo.svg" alt="" /></a>
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#home-bg">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-md-block d-none" href="#about">About</a>
-                                <a class="nav-link d-md-none d-block" href="#about1" data-aos="fade-down"
-                                    data-aos-offset="100" data-aos-duration="700">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#skills">Skills</a>
-                            </li>
-                            <li class="nav-item border-0">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <div class="navbar">
-                    <a class="scrolltop" href="#home-bg"> <i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-                </div>
-                <div class="p-5 d-lg-block d-none"></div>
-                <div class="p-5"></div>
-                <div class="col-12 text-center my-auto" id="hero">
-                    <img src="assets/img/profile_pic.png" style="width: 350px" class="img-fluid profile-img" alt="" />
-                    <h1 class="text-white fs-52"> <span class="text-orange">&mdash; </span> Hey There!</h1>
-                    <h1 class="text-white fs-52"> I'm Raymond dela Paz</h1>
-                    <div class="text-center ml-lg-auto mx-lg-0 mx-auto">
-                        <h4 class="text-white fs-37 d-inline m-0 bold ls-2 type"></h4>
-                        <h4 class="text-white fs-37 d-inline text-orange underline mr-3 bold"> |</h4>
-                    </div>
-                </div>
-                <div class="p-4 d-lg-block d-none"></div>
-                <div class="p-4 d-lg-block d-none"></div>
-                <div class="p-4 d-lg-block d-none"></div>
-                <div class="p-4 d-lg-block d-none">
-                    <p class="rotate inner text-white"><span class="fs-20 text-white mr-1 hline"></span> ABOUT ME</p>
-                </div>
-
-                <section id="about1">
-                    <div class="bg-E5580C text-white p-4 d-lg-none d-block m-4">
-                        <h1 class="text-white">About Me </h1>
-                        I found a passion for technology at a young age. Many years later,
-                        I am now a <br class="d-lg-block d-none">
-                        Lead Front-End Developer, and a Bootstrap 4 &amp; CSS Expert.
-                    </div>
-                </section>
-            </section>
+        <button
+          id="menuBtn"
+          class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5"
+          aria-label="Open Menu"
+        >
+          <span class="text-2xl">☰</span>
+        </button>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-white/10 bg-dark/95 px-6 py-4"
+      >
+        <div class="grid gap-3 text-sm font-semibold text-slateText">
+          <a href="#home" class="mobile-link">Home</a>
+          <a href="#about" class="mobile-link">About</a>
+          <a href="#projects" class="mobile-link">Projects</a>
+          <a href="#skills" class="mobile-link">Services</a>
+          <a href="#skills" class="mobile-link">Skills</a>
+          <a href="#contact" class="mobile-link">Contact</a>
         </div>
+      </div>
     </header>
 
-    <!-- skills set 1-->
-    <section class="bg-D2CABB hovered" id="skills">
-        <div class="p-lg-5 p-3" id="bg-shade1">
-            <div class="fs-24 bold pl-3" style="border-left: 2px solid #282828;">
-                Skill
-            </div>
-            <div class="row my-lg-5 my-2">
-                <div class="col-lg-6 col-12 my-auto text-center" data-aos="fade-right">
-                    <a href="https://www.figma.com/file/Y5uMIDFASDG8s48jYoeabp/online-profile-(Copy)?node-id=4%3A2"
-                        target="_blank"><img src="assets/img/figma.png" class="img-fluid flash" alt="" /></a>
-                    <!--  <iframe width="560" height="315" src="https://www.youtube.com/embed/CyeyjhRZYkM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                </div>
-                <div class="col-lg-6 col-12 fade-in-element" id="textContent" data-aos="fade-up">
-                    <div class="py-lg-5 py-2">
-                        <i class="logo-figma float-right logo"></i>
-                        <h1 class="bold fs-64">Figma</h1>
-                        <p class="bold fs-36">UI and UX Design</p>
-                        <div class="d-flex mb-4">
-                            <div class="bg-282828 h-25 text-white w-75 text-center">
-                                80%
-                            </div>
-                            <div class="bg-A7A195 w-25 h-25">&nbsp;</div>
-                        </div>
-                        <p class="fs-18 bold ">
-                            I use Figma to develop and design the mock-up, prototypes, and assets whether it's for the
-                            front page, landing page, dashboard, and so on. It helps the designer team, client, and
-                            developers collaborate and it's is a straight forward tool for every member of the team and
-                            makes it a guide thru out the project period. <br><a
-                                href="https://www.figma.com/file/Y5uMIDFASDG8s48jYoeabp/online-profile-(Copy)?node-id=4%3A2"
-                                class="text-orange" target="_blank">Click here to Figma...</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <main class="site-shell space-y-5">
+      <section
+        id="home"
+        class="hero-bg relative overflow-hidden min-h-[662px] px-6 sm:px-8 lg:px-8 grid lg:grid-cols-[1.03fr_.97fr] items-center"
+      >
+        <div class="relative z-10 max-w-[690px] reveal">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-aqua/30 bg-aqua/5 px-[17px] py-[9px] text-sm font-bold text-[#e2e8f0] shadow-cyan"
+          >
+            <span>👋</span><span>Hi, I'm available for remote work</span>
+          </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-12 order-lg-1 order-2" id="textContent" data-aos="fade-up">
-                    <div class="py-lg-5 py-3">
-                        <i class="logo-html float-left logo"></i>
-                        <div class="text-right">
-                            <h1 class="bold fs-64">Html 5</h1>
-                            <p class="bold fs-36">Structure Coding Template</p>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="bg-A7A195 w-25 h-25">&nbsp;</div>
-                            <div class="bg-282828 h-25 text-white w-75 text-center">
-                                90%
-                            </div>
-                        </div>
-                        <p class="fs-18 bold text-right">
-                            HTML 5 or HTML is the basic foundation and knowledge for a markup language or coding
-                            language to develop a structure of a web page and consists of a series of elements to tell
-                            the browser how to display the content. Here is a fast forward video of me performing on how
-                            I code and build my Online Portfolio.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12 order-lg-2 order-1 text-center" data-aos="fade-left">
-                    <!-- <img src="assets/img/html.png" class="img-fluid" alt=""> -->
-                    <iframe class="radius-25 shadow-style embed-responsive mx-auto" style="max-width: 605px" width="560"
-                        height="315" src="https://www.youtube-nocookie.com/embed/YhU6d-Da20Q?controls=0" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="row my-lg-5 my-2">
-                <div class="col-lg-6 col-12 my-auto text-center" data-aos="fade-right">
-                    <!-- <img src="assets/img/css.png" class="img-fluid" alt=""> -->
-                    <iframe class="radius-25 shadow-style embed-responsive mx-auto" style="max-width: 605px" width="560"
-                        height="315" src="https://www.youtube.com/embed/1FZmVAvA_hQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="col-lg-6 col-12" id="textContent" data-aos="fade-up">
-                    <div class="py-lg-5 py-2">
-                        <i class="logo-css float-right logo"></i>
-                        <h1 class="bold fs-64">Css 3</h1>
-                        <p class="bold fs-36">Theme and Styling</p>
-                        <div class="d-flex mb-4">
-                            <div class="bg-282828 h-25 text-white w-75 text-center">
-                                80%
-                            </div>
-                            <div class="bg-A7A195 w-25 h-25">&nbsp;</div>
-                        </div>
-                        <p class="fs-18 bold">
-                            CSS is the partner of HTML... It makes the web page more alive and catchy. It describes how
-                            the elements and assets should be displayed. Here is a video of me coding a CSS sprites.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          <h1
+            class="mt-5 flex flex-wrap items-center gap-x-4 font-display text-[52px] sm:text-[64px] lg:text-[72px] leading-none font-black tracking-[-1.8px]"
+          >
+            <span>Raymond</span>
+            <span
+              class="script-name block w-[235px] h-[81px] -mb-3"
+              aria-label="dela Paz"
+            ></span>
+          </h1>
 
-    <!-- parallax -->
-    <section class="bg-D2CABB">
-        <div class="parallax-window" data-parallax="scroll" data-z-index="" data-image-src="assets/img/bg/bg_2.jpg">
-            <div class="text-style m-0" data-aos="zoom-in">
-                <div class="position">
-                    <p>powered by : </p>
-                    <h1>JS Libraries | Framework | API's</h1>
-                </div>
-            </div>
-        </div>
-    </section>
+          <h2
+            class="mt-4 text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.08] font-bold tracking-[-.5px]"
+          >
+            <span class="block">Front-End Developer &</span>
+            <span
+              class="block bg-gradient-to-r from-[#02eba8] via-[#12b1f0] to-[#39ea66] bg-clip-text text-transparent font-display font-bold tracking-[-1.8px]"
+              >Web Designer</span
+            >
+          </h2>
 
-    <!-- skills set 2 -->
-    <section class="bg-D2CABB p-lg-5 p-3 hovered">
-        <div class="row">
-            <div class="col-lg-6 col-12 order-lg-1 order-2" id="text-content" data-aos="fade-up">
-                <div class="py-lg-5 py-2">
-                    <i class="logo-java float-left logo"></i>
-                    <div class="text-right">
-                        <h1 class="bold fs-64">Java Script</h1>
-                        <p class="bold fs-36">Programming Coding</p>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <div class="bg-A7A195 w-25 h-50">&nbsp;</div>
-                        <div class="bg-282828 h-50 text-white w-75 text-center">70%</div>
-                    </div>
-                    <p class="fs-18 bold text-right">
-                        Java Script is the powerful programming language of HTML. it can manipulate the DOM and make the
-                        web page more interactive by coding or simply adding or including JS Libraries and JQueary APIs.
-                        <br>This Online Portfolio is run and powered by Java Script Library, JQueary API and Framework.
-                    </p>
-                </div>
+          <p
+            class="mt-6 max-w-[672px] text-[16px] sm:text-[18px] leading-7 text-slateText"
+          >
+            I design and build fast, responsive, and conversion-focused websites
+            that help businesses grow, improve SEO, and generate better leads.
+          </p>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <span class="pill"><span>Ⓦ</span>WordPress</span>
+            <span class="pill"><span>🎨</span>Figma</span>
+            <span class="pill"><span>🟧</span>HTML</span>
+            <span class="pill"><span>🟦</span>CSS</span>
+            <span class="pill"><span>🟨</span>JS</span>
+          </div>
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="inline-flex min-h-[58px] items-center justify-center gap-3 rounded-xl px-12 py-4 text-base font-semibold gradient-btn"
+              >View My Work <span>→</span></a
+            >
+            <a
+              href="/assets/docs/raymond dela paz resume 06 2026.pdf"
+              class="inline-flex min-h-[58px] items-center justify-center gap-3 rounded-xl px-12 py-4 text-base font-semibold outline-btn"
+              >Download CV <span>↓</span></a
+            >
+          </div>
+
+          <div class="stat-row mt-10 grid grid-cols-4 max-w-[672px] text-left">
+            <div class="stat-item border-r border-white/10 pr-4">
+              <p class="text-3xl font-black text-aqua">6+</p>
+              <p class="mt-1 text-xs text-muted">Years Experience</p>
             </div>
-            <div class="col-lg-6 col-12 text-center order-lg-2 order-1" data-aos="fade-left">
-                <img src="assets/img/java.png" class="img-fluid flash radius-25 shadow-style" alt="" />
+            <div class="stat-item border-r border-white/10 px-4">
+              <p class="text-3xl font-black text-mint">30+</p>
+              <p class="mt-1 text-xs text-muted">Projects Completed</p>
             </div>
+            <div class="stat-item border-r border-white/10 px-4">
+              <p class="text-3xl font-black text-lime">100%</p>
+              <p class="mt-1 text-xs text-muted">Client Focus</p>
+            </div>
+            <div class="stat-item pl-4">
+              <p class="text-3xl font-black text-aqua">PH</p>
+              <p class="mt-1 text-xs text-muted">Based in Philippines</p>
+            </div>
+          </div>
         </div>
 
-        <div class="row my-lg-5 my-2">
-            <div class="col-lg-6 col-12 my-auto text-center" data-aos="fade-right">
-                <img src="assets/img/b4.png" class="img-fluid flash" alt="" />
+        <div class="relative hidden lg:block min-h-[620px] reveal">
+          <div class="hero-visual absolute inset-0"></div>
+          <div
+            class="floating-panel glass absolute right-[-28px] top-5 w-[240px] rounded-2xl p-[21px] shadow-cyan"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="grid h-12 w-12 place-items-center rounded-xl border border-mint/30 bg-mint/10 text-2xl"
+              >
+                &lt;/&gt;
+              </div>
+              <p class="font-black leading-5">
+                Building modern<br />web experiences
+              </p>
             </div>
-            <div class="col-lg-6 col-12" id="textContent" data-aos="fade-up">
-                <div class="py-lg-5 py-2">
-                    <i class="logo-b4 float-right logo"></i>
-                    <h1 class="bold fs-64">Bootstrap 4</h1>
-                    <p class="bold fs-36">Responsive Website</p>
-                    <div class="d-flex mb-4">
-                        <div class="bg-282828 h-25 text-white w-75 text-center">80%</div>
-                        <div class="bg-A7A195 w-25 h-25">&nbsp;</div>
-                    </div>
-                    <p class="fs-18 bold">
-                        Bootstrap 4 is one of the front-end frameworks that I use for all my works and projects for
-                        faster and easier development whether its for web browsers, tablets, and mobiles. Also, I use
-                        Bootstrap 4 to make this web page fully responsive.
-                    </p>
+            <div class="mt-5 grid gap-3 text-sm text-slateText">
+              <p>✅ Clean Code</p>
+              <p>✅ Responsive</p>
+              <p>✅ SEO Friendly</p>
+              <p>✅ Fast Loading</p>
+            </div>
+          </div>
+          <div
+            class="floating-panel glass absolute right-[10px] bottom-20 w-[318px] rounded-2xl p-[21px]"
+          >
+            <p class="font-semibold">Design • Develop • Optimize</p>
+            <div class="mt-5 flex items-center gap-4">
+              <div
+                class="grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-mint via-aqua to-blue-600 p-2"
+              >
+                <div
+                  class="grid h-full w-full place-items-center rounded-full bg-dark text-center px-6"
+                >
+                  <div>
+                    <p class="text-2xl font-black">98</p>
+                    <p class="text-[10px] font-bold text-mint">Page Speed</p>
+                  </div>
                 </div>
+              </div>
+              <p class="text-sm leading-6 text-slateText">
+                Performance-focused landing pages and responsive websites.
+              </p>
             </div>
+          </div>
+          <div
+            class="glass absolute left-[6%] right-[13%] bottom-[-20px] flex items-center justify-between rounded-2xl px-[21px] py-[13px] text-3xl"
+          >
+            <span>Ⓦ</span><span>🎨</span><span>≈</span><span>V</span
+            ><span>⚛</span
+            ><span class="text-xl font-black text-yellow-300">JS</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="px-6 sm:px-8 reveal">
+        <div
+          class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
+        >
+          <div>
+            <p class="text-xs font-black uppercase tracking-[4.2px] text-mint">
+              Featured Projects
+            </p>
+            <h2 class="mt-3 font-display text-3xl sm:text-4xl font-black">
+              Some of My <span class="text-aqua">Recent Work</span>
+            </h2>
+          </div>
+          <a
+            href="#contact"
+            class="inline-flex w-max rounded-xl border border-aqua/50 px-5 py-3 text-sm font-black text-slate-100"
+            >View All Projects →</a
+          >
         </div>
 
-        <div class="row">
-            <div class="col-lg-6 col-12 order-lg-1 order-2" data-aos="fade-up">
-                <div class="py-lg-5 py-2">
-                    <i class="logo-vega float-left logo" id="sony-logo"></i>
-                    <div class="text-right">
-                        <h1 class="bold fs-64">Sony Vega Pro</h1>
-                        <p class="bold fs-36">Video Editing</p>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <div class="bg-A7A195 w-25 h-50">&nbsp;</div>
-                        <div class="bg-282828 h-50 text-white w-75 text-center">75%</div>
-                    </div>
-                    <p class="fs-18 bold text-right ">
-                        Having knowledge and Learning video production teaches you how to use this medium to
-                        communicate. Learning to edit video is even more important as it allows you to take what you
-                        have produced and tell the story in a more concise way that will keep the viewers’ attention.
-                        here's a sample of my work.
-                    </p>
-                </div>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <article class="project-card glass rounded-2xl overflow-hidden">
+            <div class="project-image relative h-40">
+              <img
+                src="https://www.figma.com/api/mcp/asset/5be86733-5066-4c74-a3ec-2fe354b253c0"
+                alt="EcoBuild Plus"
+              /><span
+                class="absolute left-3 top-3 rounded-full bg-mint px-3 py-1 text-xs font-black text-ink"
+                >WordPress</span
+              >
             </div>
-            <div class="col-lg-6 col-12 text-center order-lg-2 order-1" data-aos="fade-left">
-                <iframe class="radius-25 shadow-style embed-responsive mx-auto" style="max-width: 605px" width="560"
-                    height="315" src="https://www.youtube.com/embed/ShhE_HnjnIw?controls=0" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <div class="p-5">
+              <h3 class="text-lg font-black">EcoBuild Plus</h3>
+              <p class="mt-1 text-xs text-muted">
+                Web Design • WordPress • SEO
+              </p>
+              <p class="mt-3 text-sm leading-6 text-slateText">
+                Designed and developed landing pages, service areas, SEO fixes,
+                and ongoing maintenance.
+              </p>
+              <a
+                href="#contact"
+                class="mt-4 inline-block text-sm font-black text-aqua"
+                >View Case Study →</a
+              >
             </div>
+          </article>
+          <article class="project-card glass rounded-2xl overflow-hidden">
+            <div class="project-image relative h-40">
+              <img
+                src="https://www.figma.com/api/mcp/asset/5dbdf437-14c6-44eb-b4a0-9ce474dc6a39"
+                alt="Deluxe Wine & Spirits"
+              /><span
+                class="absolute left-3 top-3 rounded-full bg-fuchsia-500 px-3 py-1 text-xs font-black text-white"
+                >WordPress</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-black">Deluxe Wine & Spirits</h3>
+              <p class="mt-1 text-xs text-muted">Web Design • Elementor</p>
+              <p class="mt-3 text-sm leading-6 text-slateText">
+                Website facelift, content updates, SEO structure, and
+                product/service pages.
+              </p>
+              <a
+                href="#contact"
+                class="mt-4 inline-block text-sm font-black text-aqua"
+                >View Case Study →</a
+              >
+            </div>
+          </article>
+          <article class="project-card glass rounded-2xl overflow-hidden">
+            <div class="project-image relative h-40">
+              <img
+                src="https://www.figma.com/api/mcp/asset/7007cf46-5ff9-4374-9770-ac24f8768330"
+                alt="SunPower GL Consulting"
+              /><span
+                class="absolute left-3 top-3 rounded-full bg-blue-500 px-3 py-1 text-xs font-black text-white"
+                >Framer</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-black">SunPower / GL Consulting</h3>
+              <p class="mt-1 text-xs text-muted">Front-End Development</p>
+              <p class="mt-3 text-sm leading-6 text-slateText">
+                Framer page conversion, responsive layouts, location templates,
+                and fixes.
+              </p>
+              <a
+                href="#contact"
+                class="mt-4 inline-block text-sm font-black text-aqua"
+                >View Case Study →</a
+              >
+            </div>
+          </article>
+          <article class="project-card glass rounded-2xl overflow-hidden">
+            <div class="project-image relative h-40">
+              <img
+                src="https://www.figma.com/api/mcp/asset/b72e863a-b314-4307-a74a-99a1a5980f18"
+                alt="EveryMatrix PartnerMatrix"
+              /><span
+                class="absolute left-3 top-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-black text-white"
+                >Vue 3</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-black">EveryMatrix / PartnerMatrix</h3>
+              <p class="mt-1 text-xs text-muted">Vue 3 • Quasar • Pinia</p>
+              <p class="mt-3 text-sm leading-6 text-slateText">
+                Dashboard development, UI components, charts, and data
+                visualization.
+              </p>
+              <a
+                href="#contact"
+                class="mt-4 inline-block text-sm font-black text-aqua"
+                >View Case Study →</a
+              >
+            </div>
+          </article>
+          <article
+            class="project-card glass rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-1"
+          >
+            <div class="project-image relative h-40">
+              <img
+                src="https://www.figma.com/api/mcp/asset/12461680-c0a1-4f30-b2c5-d498d1f89609"
+                alt="DigitalSolutionPH"
+              /><span
+                class="absolute left-3 top-3 rounded-full bg-[#9507dd] px-3 py-1 text-xs font-black text-white shadow-[0_0_5px_rgba(149,7,221,.7)]"
+                >HTML</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-black">DigitalSolutionPH</h3>
+              <p class="mt-1 text-xs text-muted">WordPress • Elementor • GA4</p>
+              <p class="mt-3 text-sm leading-6 text-slateText">
+                Agency website using Elementor, Figma, CSS/JS, GA4, and
+                analytics setup.
+              </p>
+              <a
+                href="#contact"
+                class="mt-4 inline-block text-sm font-black text-aqua"
+                >View Case Study →</a
+              >
+            </div>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- contact -->
-    <section id="contact">
-        <div id="bg3" class="row m-0 py-5">
-            <div class="col-lg-6 my-auto" data-aos="fade-right">
-                <div class="px-5 mb-5">
-                    <h1 class="text-white mb-5">Message Me</h1>
-                    <form action="">
-                        <input class="form-style col" type="text" placeholder="Your Name">
-                        <input class="form-style col" type="text" placeholder="Your Email">
-                        <textarea class="p-3 mb-5 btn-block bg-transparent" placeholder="Message" name="" id=""
-                            cols="30" rows="5"></textarea>
-                        <button class="btn btn-style1 btn-block shadow" id="send-sms" type="button">Send
-                            Message</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col  my-auto text-md-left text-center" data-aos="fade-left">
-                <div class="p-5 mx-auto">
-                    <h1 class="text-left text-white d-inline">Google Map </h1>
-                    <p class="text-white d-inline">google.maps.js with API Key</p>
-                    <iframe class="p-2 bg-white my-4 col effect7 rounded"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5642281.638796816!2d119.02217782602928!3d12.437250115837742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339653c6cde73333%3A0xa6c4ace8c178e91d!2sSumapang%20Matanda%2C%20Malolos%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1586603672052!5m2!1sen!2sph"
-                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0"></iframe>
-
-                    <script
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFE-tyraAKINx8XGUBuf6O0itaHC6U2Y&callback=initMap"
-                        async defer></script>
-                </div>
-            </div>
+      <section
+        id="skills"
+        class="glass mx-6 sm:mx-8 lg:mx-auto max-w-[1316px] rounded-3xl p-[33px] reveal"
+      >
+        <p class="text-xs font-black uppercase tracking-[4.2px] text-mint">
+          Technologies & Tools I Use
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <div class="skill-card">
+            <span class="text-3xl">🟧</span
+            ><span class="text-xs font-bold">HTML</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🟦</span
+            ><span class="text-xs font-bold">CSS</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🟨</span
+            ><span class="text-xs font-bold">JavaScript</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🐘</span
+            ><span class="text-xs font-bold">PHP</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">Ⓦ</span
+            ><span class="text-xs font-bold">WordPress</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🧩</span
+            ><span class="text-xs font-bold">Elementor</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🎨</span
+            ><span class="text-xs font-bold">Figma</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🌊</span
+            ><span class="text-xs font-bold">Tailwind</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🟩</span
+            ><span class="text-xs font-bold">Vue 3</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">⚛️</span
+            ><span class="text-xs font-bold">React</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🔷</span
+            ><span class="text-xs font-bold">Quasar</span>
+          </div>
+          <div class="skill-card">
+            <span class="text-3xl">🔧</span
+            ><span class="text-xs font-bold">Git</span>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- footer -->
-    <footer class="bg-282828 py-5 px-lg-5 px-3">
-        <div class="row p-0 m-0">
-            <div class="col-lg-4 col-md-6 col-12 text-lg-left text-center">
-                <img src="assets/img/logo/logo.svg" class="float-lg-left mr-lg-3 mb-lg-0 mb-3 fx" alt="" />
-                <h5 class="text-white fs-24 bold">My Web Portfolio</h5>
-                <p class="text-white fs-18 ">2020 copyrights</p>
+      <section id="about" class="px-6 sm:px-8 reveal">
+        <div class="mx-auto grid max-w-[1280px] gap-5 lg:grid-cols-3">
+          <div class="glass rounded-3xl p-[33px]">
+            <div class="flex items-center gap-5">
+              <div>
+                <h2 class="font-display text-2xl font-black">About Me</h2>
+                <p class="mt-2 text-base leading-7 text-slateText">
+                  I’m passionate about building modern, fast, and user-friendly
+                  websites that not only look good but also drive real results.
+                </p>
+              </div>
             </div>
-            <div class="col d-md-none d-block mb-4 mx-5" style="border-bottom: 1px solid #404040;"></div>
-            <div class="col-lg-5 col-md-6 col-12 text-lg-left text-center p-0 mb-3">
-                <h4 class="text-white">Contact Info</h4>
-                <a href="mailto:raymondwebdeveloper@gmail.com" class="text-white">
-                    <i class="text-white float-lg-left float-center material-icons mr-3">&#xe0be;</i>
-                    <p class="text-white">Email: raymondwebdeveloper@gmail.com</p>
-                </a>
-                <a href="mailto:raymondwebdeveloper@gmail.com" class="text-white">
-                    <i style="font-size:24px"
-                        class="text-white float-lg-left float-center material-icons mr-3">&#xe0c8;</i>
-                    <p class="text-white">Malolos City, Bulacan, Philippines</p>
-                </a>
-                <a href="mailo:raymondwebdeveloper@gmail.com" class="text-white">
-                    <i class="text-white float-lg-left float-center material-icons mr-3">&#xe324;</i>
-                    <p class="text-white">Phone: 111 - 1111</p>
-                </a>
+          </div>
+          <div class="glass rounded-3xl p-[33px]">
+            <h2 class="font-display text-2xl font-black">
+              My Journey in Numbers
+            </h2>
+            <div class="mt-6 grid grid-cols-4 gap-4 text-center">
+              <div>
+                <p class="text-4xl font-black text-aqua">6+</p>
+                <p class="text-xs text-muted">Years</p>
+              </div>
+              <div>
+                <p class="text-4xl font-black text-mint">30+</p>
+                <p class="text-xs text-muted">Projects</p>
+              </div>
+              <div>
+                <p class="text-4xl font-black text-lime">20+</p>
+                <p class="text-xs text-muted">Clients</p>
+              </div>
+              <div>
+                <p class="text-4xl font-black text-aqua">100%</p>
+                <p class="text-xs text-muted">Commitment</p>
+              </div>
             </div>
-            <div class="col d-lg-none d-block mb-4 mx-5" style="border-bottom: 1px solid #404040;"></div>
-            <div class="col-lg-3 col-12 my-auto text-lg-right text-center" id="media-btn">
-                <a href="https://www.linkedin.com/in/raymondwebdeveloper/">
-                    <img src="assets/img/icon/icon_linkedin.svg" class="fx m-2" alt="" />
-                </a>
-                <a href="https://www.youtube.com/channel/UCO3_ij0111QxSiOYzDk829Q?view_as=subscriber">
-                    <img src="assets/img/icon/icon_yt.svg" class="fx m-2" alt="" />
-                </a>
-                <br>
-                <a href="https://www.facebook.com/raymond.delapaz.9">
-                    <img src="assets/img/icon/icon_fb.svg" class="fx m-2" alt="" />
-                </a>
-                <a href="https://github.com/raymondwebdeveloper">
-                    <img src="assets/img/icon/icon_github.svg" class="fx m-2" alt="" />
-                </a>
-            </div>
+          </div>
+          <div class="glass rounded-3xl p-[33px]">
+            <h2 class="font-display text-2xl font-black">What Clients Say</h2>
+            <p class="mt-5 text-base leading-7 text-slateText">
+              “Raymond is very professional, easy to work with, and delivers
+              high-quality work on time.”
+            </p>
+            <p class="mt-4 text-xl text-yellow-300">★★★★★</p>
+            <p class="mt-2 text-sm font-bold text-aqua">Client from Upwork</p>
+          </div>
         </div>
+      </section>
+
+      <section
+        id="contact"
+        class="mx-6 sm:mx-8 lg:mx-auto max-w-[1216px] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-aqua/10 via-ink to-mint/10 p-[41px] reveal"
+      >
+        <div
+          class="relative grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-center"
+        >
+          <div
+            class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-mint/20 blur-3xl"
+          ></div>
+          <div class="relative">
+            <h2
+              class="font-display text-[42px] sm:text-[48px] leading-none font-black"
+            >
+              Let’s <span class="text-aqua">Work<br />Together</span> 🚀
+            </h2>
+            <p class="mt-4 max-w-xl text-base leading-8 text-slateText">
+              I’m available for freelance projects and full-time opportunities.
+              Let’s build something clean, fast, and conversion-focused.
+            </p>
+          </div>
+          <div class="relative grid gap-4 sm:grid-cols-3">
+            <a
+              href="mailto:raymond.delapaz@email.com"
+              class="rounded-2xl bg-gradient-to-r from-aqua to-mint p-px"
+              ><div class="h-full rounded-2xl bg-dark/90 p-5">
+                <p class="text-3xl">✉️</p>
+                <p class="mt-2 font-black">Email Me</p>
+                <p class="mt-1 break-all text-xs text-muted">
+                  raymond.delapaz@email.com
+                </p>
+              </div></a
+            >
+            <a
+              href="https://www.linkedin.com/in/raymondweb/"
+              target="_blank"
+              class="rounded-2xl border border-white/10 bg-white/[.03] p-5"
+              ><p class="text-3xl">in</p>
+              <p class="mt-2 font-black">LinkedIn</p>
+              <p class="mt-1 text-xs text-muted">View profile</p></a
+            >
+            <a
+              href="https://www.behance.net/raymondwebdeveloper"
+              target="_blank"
+              class="rounded-2xl border border-white/10 bg-white/[.03] p-5"
+              ><p class="text-3xl">Bē</p>
+              <p class="mt-2 font-black">Behance</p>
+              <p class="mt-1 text-xs text-muted">View designs</p></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-6">
+      <div
+        class="site-shell flex flex-col gap-3 px-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8"
+      >
+        <p>© 2026 Raymond dela Paz • Front-End Developer & Web Designer</p>
+        <p>Designed & Coded with • by Raymond</p>
+      </div>
     </footer>
 
-    <!-- theme button selector -->
-    <div class="theme-btn">
-        <div class="d-flex align-items-center">
-            <div class="bg-orange p-2"
-                style=" border: 3px solid #fff; border-radius: 7px 0px 0px 7px; border-right:none; position: relative; right: -3px;">
-                <img src="./assets/img/icon/icon_gear.svg" alt="" class="icon-rotate">
-            </div>
-            <div class="bg-orange py-3" style="border: 3px solid #fff; border-radius: 7px;">
-                <button class="btn btn-orange text-white text-center btn-block mx-3">
-                    Default
-                    <br>
-                    Theme
-                </button>
-
-                <button class="btn btn-orange text-white btn-block mx-3">Illustration <br> Theme</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- .js libs | jQuery | java script-->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="assets/js/app.js"></script>
+    <button
+      id="backTop"
+      type="button"
+      class="fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-full gradient-btn font-black opacity-0 pointer-events-none transition"
+    >
+      ↑
+    </button>
 
     <script>
-        // scroll effect
-        $('.navbar a').on('click', function (e) {
-            console.log(this.hash);
-            if (this.hash !== '') {
-                e.preventDefault();
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn?.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden"),
+      );
+      document
+        .querySelectorAll(".mobile-link")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            mobileMenu.classList.add("hidden"),
+          ),
+        );
 
-                const hash = this.hash;
+      const backTop = document.getElementById("backTop");
 
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                },
-                    800
-                );
-            }
+      backTop?.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
+      });
+      
+      const sections = [...document.querySelectorAll("section[id]")];
+      const navLinks = [...document.querySelectorAll(".nav-link")];
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+
+      window.addEventListener("scroll", () => {
+        const y = window.scrollY;
+        if (y > 450)
+          backTop.classList.remove("opacity-0", "pointer-events-none");
+        else backTop.classList.add("opacity-0", "pointer-events-none");
+
+        let current = "home";
+        sections.forEach((section) => {
+          if (y >= section.offsetTop - 140) current = section.id;
+        });
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href")?.replace("#", "");
+          link.classList.toggle(
+            "active",
+            href === current || (href === "skills" && current === "skills"),
+          );
+        });
+      });
     </script>
-
-    <script>
-        // loading page
-        window.addEventListener("load", () => {
-            const preload = document.querySelector(".preload");
-            preload.classList.add("preload-finish");
-        });
-
-        // type effect    
-        var typed = new Typed('.type', {
-            strings: [
-                "a Front End Developer . . .",
-                "a Web Designer . . .",
-                "a Graphic Artist . . .",
-                "a Freelancer . . .",
-                "a Video Editor . . ."
-            ],
-            typeSpeed: 20,
-            backSpeed: 10,
-            loop: true
-        });
-
-    </script>
-</body>
-
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>-->
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-<script src="assets/js/parallax.js"></script>
-<script src="assets/js/main.js"></script>
-
+  </body>
 </html>
