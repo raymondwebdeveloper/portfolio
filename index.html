@@ -15,6 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="icon"
+      href="assets/img/icon/favicon.svg"
+      type="image/gif"
+      sizes="16x16"
+    />
     <script>
       tailwind.config = {
         theme: {
@@ -121,9 +127,6 @@
         white-space: nowrap;
       }
       .hero-bg {
-        background-image:
-          var(--hero-bg),
-          linear-gradient(90deg, rgb(0 0 0 / 96%), rgba(5, 8, 20, 0.8));
         background-repeat: no-repeat;
         background-size: auto 100%;
         background-position: 220% center;
@@ -189,13 +192,17 @@
       .nav-link:hover {
         color: #37ff8b;
       }
+      @media (max-width: 1412px) {
+        .hero-bg {
+          background-image: none;
+        }
+      }
       @media (max-width: 1200px) {
         .site-shell {
           max-width: 100%;
         }
         .hero-bg {
-          background-size: 70% auto;
-          background-position: right top;
+          background-image: none;
         }
         .project-card {
           min-height: auto;
@@ -210,7 +217,7 @@
           background-position: center top;
         }
         .floating-panel {
-          display: none !important;
+          display: block;
         }
       }
       @media (max-width: 767px) {
@@ -231,6 +238,57 @@
           padding: 0.6rem !important;
         }
       }
+
+      /* Responsive polish fixes */
+      @media (max-width: 1279px) {
+        .site-shell {
+          max-width: 100%;
+        }
+        #mobileMenu a {
+          display: block;
+          padding: 0.85rem 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-bg {
+          background-image:
+            linear-gradient(90deg, rgba(5, 8, 20, 0.96), rgba(5, 8, 20, 0.8)),
+            var(--hero-bg);
+          background-position: 64% top;
+        }
+
+        .pill {
+          padding: 0.42rem 0.7rem;
+          font-size: 0.68rem;
+        }
+        .project-card {
+          min-height: auto;
+        }
+        .project-image {
+          height: 190px !important;
+        }
+        .glass {
+          border-radius: 20px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .script-name {
+          width: 126px !important;
+          height: 46px !important;
+        }
+        .stat-row {
+          grid-template-columns: 1fr;
+        }
+        .stat-item {
+          border-right: 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .stat-item:last-child {
+          border-bottom: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -239,7 +297,7 @@
       class="sticky top-0 z-50 border-b border-white/10 bg-dark/70 backdrop-blur-xl"
     >
       <div
-        class="site-shell h-20 px-6 lg:px-0 flex items-center justify-between"
+        class="site-shell h-20 px-5 sm:px-6 lg:px-8 flex items-center justify-between"
       >
         <a href="#home" class="flex items-center gap-3 group">
           <span
@@ -259,29 +317,29 @@
         </a>
 
         <nav
-          class="hidden md:flex items-center gap-8 text-[14px] font-semibold text-slateText"
+          class="hidden xl:flex items-center gap-8 text-[14px] font-semibold text-slateText"
         >
           <a href="#home" class="nav-link transition">Home</a>
           <a href="#about" class="nav-link transition">About</a>
           <a href="#projects" class="nav-link transition">Projects</a>
-          <a href="#skills" class="nav-link transition">Services</a>
+
           <a href="#skills" class="nav-link transition">Skills</a>
           <a href="#contact" class="nav-link transition">Contact</a>
         </nav>
 
         <a
           href="mailto:raymond.delapaz@email.com"
-          class="hidden sm:inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold gradient-btn"
+          class="hidden xl:inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold gradient-btn"
         >
           Hire Me
           <span
-            ><img src="assets/img/icon/paper-plane-svgrepo-com.svg" alt=""
+            ><img src="assets/icon/paper-plane-svgrepo-com.svg" alt=""
           /></span>
         </a>
 
         <button
           id="menuBtn"
-          class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5"
+          class="xl:hidden grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5"
           aria-label="Open Menu"
         >
           <span class="text-2xl">☰</span>
@@ -289,7 +347,7 @@
       </div>
       <div
         id="mobileMenu"
-        class="hidden md:hidden border-t border-white/10 bg-dark/95 px-6 py-4"
+        class="hidden xl:hidden border-t border-white/10 bg-dark/95 px-6 py-4"
       >
         <div class="grid gap-3 text-sm font-semibold text-slateText">
           <a href="#home" class="mobile-link">Home</a>
@@ -305,9 +363,11 @@
     <main class="site-shell space-y-5">
       <section
         id="home"
-        class="hero-bg relative overflow-hidden min-h-[662px] px-6 sm:px-8 lg:px-8 grid lg:grid-cols-[1.03fr_.97fr] items-center"
+        class="hero-bg relative overflow-hidden min-h-[auto] lg:min-h-[662px] px-5 sm:px-8 lg:px-8 py-6 lg:py-20 lg:py-0 grid lg:grid-cols-[1.03fr_.97fr] items-center"
       >
-        <div class="relative z-10 max-w-[690px] reveal">
+        <div
+          class="relative z-10 max-w-[690px] reveal order-2 lg:order-1 text-center lg:text-left mx-auto"
+        >
           <div
             class="inline-flex items-center gap-2 rounded-full border border-aqua/30 bg-aqua/5 px-[17px] py-[9px] text-sm font-bold text-[#e2e8f0] shadow-cyan"
           >
@@ -315,7 +375,7 @@
           </div>
 
           <h1
-            class="mt-5 flex flex-wrap items-center gap-x-4 font-display text-[52px] sm:text-[64px] lg:text-[72px] leading-none font-black tracking-[-1.8px]"
+            class="justify-center lg:justify-start mx-auto mt-5 flex flex-wrap items-center gap-x-3 sm:gap-x-4 font-display text-[30px] sm:text-[60px] xl:text-[72px] leading-none font-black tracking-[-1.8px]"
           >
             <span>Raymond</span>
             <span
@@ -325,7 +385,7 @@
           </h1>
 
           <h2
-            class="mt-4 text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.08] font-bold tracking-[-.5px]"
+            class="mt-4 text-[31px] sm:text-[42px] lg:text-[48px] leading-[1.08] font-bold tracking-[-.5px]"
           >
             <span class="block">Front-End Developer &</span>
             <span
@@ -341,7 +401,9 @@
             that help businesses grow, improve SEO, and generate better leads.
           </p>
 
-          <div class="mt-7 flex flex-wrap items-center gap-3">
+          <div
+            class="mt-7 flex flex-wrap items-center gap-3 justify-center lg:justify-start"
+          >
             <span class="pill"><span>Ⓦ</span>WordPress</span>
             <span class="pill"><span>🎨</span>Figma</span>
             <span class="pill"><span>🟧</span>HTML</span>
@@ -349,20 +411,24 @@
             <span class="pill"><span>🟨</span>JS</span>
           </div>
 
-          <div class="mt-9 flex flex-wrap gap-4">
+          <div
+            class="mt-9 flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start"
+          >
             <a
               href="#projects"
-              class="inline-flex min-h-[58px] items-center justify-center gap-3 rounded-xl px-12 py-4 text-base font-semibold gradient-btn"
-              >View My Work <span>→</span></a
-            >
+              class="inline-flex min-h-[58px] w-full sm:w-auto items-center justify-center gap-3 rounded-xl px-8 sm:px-12 py-4 text-base font-bold gradient-btn"
+              >View My Work
+            </a>
             <a
               href="/assets/docs/raymond dela paz resume 06 2026.pdf"
-              class="inline-flex min-h-[58px] items-center justify-center gap-3 rounded-xl px-12 py-4 text-base font-semibold outline-btn"
+              class="inline-flex min-h-[58px] w-full sm:w-auto items-center justify-center gap-3 rounded-xl px-8 sm:px-12 py-4 text-base font-semibold outline-btn"
               >Download CV <span>↓</span></a
             >
           </div>
 
-          <div class="stat-row mt-10 grid grid-cols-4 max-w-[672px] text-left">
+          <div
+            class="stat-row mt-10 grid grid-cols-2 sm:grid-cols-4 max-w-[672px] text-left"
+          >
             <div class="stat-item border-r border-white/10 pr-4">
               <p class="text-3xl font-black text-aqua">6+</p>
               <p class="mt-1 text-xs text-muted">Years Experience</p>
@@ -382,10 +448,12 @@
           </div>
         </div>
 
-        <div class="relative hidden lg:block min-h-[620px] reveal">
+        <div
+          class="relative min-h-[300px] lg:min-h-[620px] reveal order-1 lg:order-2"
+        >
           <div class="hero-visual absolute inset-0"></div>
           <div
-            class="floating-panel glass absolute right-[-28px] top-5 w-[240px] rounded-2xl p-[21px] shadow-cyan"
+            class="floating-panel glass absolute right-[-28px] top-5 w-[240px] rounded-2xl p-[21px] shadow-cyan invisible"
           >
             <div class="flex items-center gap-3">
               <div
@@ -405,7 +473,7 @@
             </div>
           </div>
           <div
-            class="floating-panel glass absolute right-[10px] bottom-20 w-[318px] rounded-2xl p-[21px]"
+            class="floating-panel glass absolute right-[10px] bottom-20 w-[318px] rounded-2xl p-[21px] hidden lg:block"
           >
             <p class="font-semibold">Design • Develop • Optimize</p>
             <div class="mt-5 flex items-center gap-4">
@@ -427,7 +495,7 @@
             </div>
           </div>
           <div
-            class="glass absolute left-[6%] right-[13%] bottom-[-20px] flex items-center justify-between rounded-2xl px-[21px] py-[13px] text-3xl"
+            class="glass absolute left-[6%] right-[13%] bottom-[-20px] flex items-center justify-between rounded-2xl px-[21px] py-[13px] text-3xl hidden lg:flex"
           >
             <span>Ⓦ</span><span>🎨</span><span>≈</span><span>V</span
             ><span>⚛</span
@@ -436,7 +504,7 @@
         </div>
       </section>
 
-      <section id="projects" class="px-6 sm:px-8 reveal">
+      <section id="projects" class="px-5 sm:px-8 reveal">
         <div
           class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
         >
@@ -455,7 +523,9 @@
           >
         </div>
 
-        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div
+          class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+        >
           <article class="project-card glass rounded-2xl overflow-hidden">
             <div class="project-image relative h-40">
               <img
@@ -585,7 +655,7 @@
 
       <section
         id="skills"
-        class="glass mx-6 sm:mx-8 lg:mx-auto max-w-[1316px] rounded-3xl p-[33px] reveal"
+        class="glass mx-5 sm:mx-8 lg:mx-auto max-w-[1316px] rounded-3xl p-6 sm:p-[33px] reveal"
       >
         <p class="text-xs font-black uppercase tracking-[4.2px] text-mint">
           Technologies & Tools I Use
@@ -642,8 +712,8 @@
         </div>
       </section>
 
-      <section id="about" class="px-6 sm:px-8 reveal">
-        <div class="mx-auto grid max-w-[1280px] gap-5 lg:grid-cols-3">
+      <section id="about" class="px-5 sm:px-8 reveal">
+        <div class="mx-auto grid max-w-[1280px] gap-5 xl:grid-cols-3">
           <div class="glass rounded-3xl p-[33px]">
             <div class="flex items-center gap-5">
               <div>
@@ -659,7 +729,7 @@
             <h2 class="font-display text-2xl font-black">
               My Journey in Numbers
             </h2>
-            <div class="mt-6 grid grid-cols-4 gap-4 text-center">
+            <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               <div>
                 <p class="text-4xl font-black text-aqua">6+</p>
                 <p class="text-xs text-muted">Years</p>
@@ -692,7 +762,7 @@
 
       <section
         id="contact"
-        class="mx-6 sm:mx-8 lg:mx-auto max-w-[1216px] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-aqua/10 via-ink to-mint/10 p-[41px] reveal"
+        class="mx-5 sm:mx-8 lg:mx-auto max-w-[1216px] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-aqua/10 via-ink to-mint/10 p-6 sm:p-8 lg:p-[41px] reveal"
       >
         <div
           class="relative grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-center"
@@ -702,7 +772,7 @@
           ></div>
           <div class="relative">
             <h2
-              class="font-display text-[42px] sm:text-[48px] leading-none font-black"
+              class="font-display text-[34px] sm:text-[42px] lg:text-[48px] leading-none font-black"
             >
               Let’s <span class="text-aqua">Work<br />Together</span> 🚀
             </h2>
@@ -711,7 +781,7 @@
               Let’s build something clean, fast, and conversion-focused.
             </p>
           </div>
-          <div class="relative grid gap-4 sm:grid-cols-3">
+          <div class="relative grid gap-4 md:grid-cols-3">
             <a
               href="mailto:raymond.delapaz@email.com"
               class="rounded-2xl bg-gradient-to-r from-aqua to-mint p-px"
@@ -744,12 +814,12 @@
       </section>
     </main>
 
-    <footer class="border-t border-white/10 py-6">
+    <footer class="border-t border-white/10 py-6 mt-6">
       <div
         class="site-shell flex flex-col gap-3 px-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8"
       >
         <p>© 2026 Raymond dela Paz • Front-End Developer & Web Designer</p>
-        <p>Designed & Coded with • by Raymond</p>
+        <p>Designed & Coded • by Raymond</p>
       </div>
     </footer>
 
@@ -783,7 +853,7 @@
           behavior: "smooth",
         });
       });
-      
+
       const sections = [...document.querySelectorAll("section[id]")];
       const navLinks = [...document.querySelectorAll(".nav-link")];
 
